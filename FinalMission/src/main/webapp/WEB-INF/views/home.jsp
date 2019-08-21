@@ -144,6 +144,15 @@ ul, li {
 	color:#000000;
 	font-weight:bold;
 }
+
+.title-a{
+	color:black;
+}
+
+.title-a:hover{
+	text-decoration:underline;
+	text-underline-position: under;
+}
 	</style>
 </head>
 <body>
@@ -235,7 +244,9 @@ ul, li {
 					{{#users}}
 					<tr>
 						<td>{{num}}</td>
-						<td style="text-align:left;cursor:pointer;" id="{{num}}">{{title}}</td>
+						<td style="text-align:left;" id="{{num}}">
+							<a href="javascript:void(0)" class="title-a">{{title}}</a>
+						</td>
 						<td>{{id}}</td>
 						<td>{{time}}</td>
 						<td>{{view}}</td>
