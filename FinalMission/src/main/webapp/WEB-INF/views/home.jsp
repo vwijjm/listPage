@@ -39,8 +39,20 @@ ul, li {
 
 .all-search{
 	float:left;
-	margin-right:10px;
-	height:25px;
+    border: 0;
+    border-bottom: solid 6px #ea003d;
+    width: 70%;
+    height: 100%;
+    background: transparent;
+    font-size: 17px;
+    line-height: 1em;
+    box-sizing: border-box;
+    padding: 0 40px 9px 20px;
+    color: #878787;
+}
+
+.all-search:focus{
+	outline:none;
 }
 #all_search{
 	float:left;
@@ -198,8 +210,7 @@ ul, li {
 			<a href="/">
 				<i class="fa fa-home fa-sc"></i>
 			</a>
-			<a href="javascript:void(0)" style="float:right">
-				<input type="text" maxlength="25" class="all-search">
+			<a href="javascript:void(0)" style="float:right" id="all_search_form">
 				<i class="fa fa-search" id="all_search"></i>
 			</a>
 		</div>
@@ -431,7 +442,8 @@ ul, li {
 	    }
 	
 		$(document).on("click","#all_search",function(){
-			console.log("클릭");
+			var html = '<input type="text" maxlength="25" class="all-search">';
+			$("#all_search_form").prepend(html);
 		});
 		
 		var isOver = false;		//가장 큰 목록 마우스오버 여부
