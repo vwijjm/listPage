@@ -298,7 +298,6 @@ ul, li {
 			var slice = data.users.slice(start,end);
 			var datas = {};
 			datas.users = slice;
-			console.log(datas);
 			var html = template(datas);
 		
 			$("#table_template").html(html);
@@ -357,7 +356,7 @@ ul, li {
 		var overTarget;		//마우스 오버한 목록을 넣기위한 변수선언
 		
 		//큰 목록 마우스오버 이벤트
-		$("#header_title > li").on("mouseover",function(e){
+		$("#header_title > li").on("mouseenter",function(e){
 			e.preventDefault();
 			
 			isOver = true;
@@ -389,9 +388,14 @@ ul, li {
 			menuMouseLeave();
 		});
 		
+		
 		function menuMouseLeave(){
 			isOver = false;
 			var _this = overTarget;
+			$(_this).find("a").on("click",function(){
+				$(".table-title").html($(this).text());
+				paging(totalData, dataPerPage, pageCount, 1);
+			});
 			
 			if(!_this) return;
 			setTimeout(function(){
