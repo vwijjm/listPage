@@ -258,7 +258,7 @@ ul, li {
 
 		var data = {
 				users:[
-					{num:"123",title:"내가 제목이라고 말을 했자나요",id:"vwijjm",time:"2019-08-20",view:"5346"},
+					{num:"123",title:"이것은 제목입니다.",id:"vwijjm",time:"2019-08-20",view:"5346"},
 					{num:"이름12",title:"제목12",id:"아이디12",time:"시간12",view:"뷰12"},
 					{num:"이름13",title:"제목13",id:"아이디13",time:"시간13",view:"뷰13"},
 					{num:"이름14",title:"제목14",id:"아이디14",time:"시간14",view:"뷰14"},
