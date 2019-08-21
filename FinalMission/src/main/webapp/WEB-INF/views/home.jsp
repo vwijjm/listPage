@@ -153,6 +153,43 @@ ul, li {
 	text-decoration:underline;
 	text-underline-position: under;
 }
+
+.searchForm{
+	margin-top:45px;
+	text-align:center;
+	padding:20px 0;
+	background-color:#f6f6f6;
+}
+
+.search-type{
+	vertical-align:middle;
+	height:23px;
+	line-height:23px;
+	white-space:nowrap;
+}
+
+.search-input{
+    vertical-align: middle;
+    border: 1px solid #d9d9d9;
+    height: 23px;
+    line-height: 23px;
+    width: 210px;
+    padding: 0 5px;
+}
+
+.search-a{
+    vertical-align: middle;
+    display: inline-block;
+    width: 42px;
+    height: 24px;
+    padding-top: 1px;
+    line-height: 24px;
+    text-align: center;
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+    background-color: #767676;
+}
 	</style>
 </head>
 <body>
@@ -261,6 +298,19 @@ ul, li {
 			<ul class="pagination justify-center" id="paging">
 			</ul>		
 	</nav>	
+	<div class="searchForm">
+		<form style="margin:0;">
+			<select class="search-type">
+				<option value="">전체</option>
+				<option value="title">제목</option>
+				<option value="id">아이디</option>
+			</select>
+			<input class="search-input" type="text">
+			<a href="javascript:void(0)" class="search-a">검색</a>
+		</form>
+	</div>
+	<div style="height:100px;">
+	</div>
 	<script type="text/javascript">
 	
 	    $("document").ready(function(){        
