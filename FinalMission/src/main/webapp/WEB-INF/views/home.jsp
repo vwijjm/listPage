@@ -235,7 +235,7 @@ ul, li {
 					{{#users}}
 					<tr>
 						<td>{{num}}</td>
-						<td style="text-align:left;">{{title}}</td>
+						<td style="text-align:left;cursor:pointer;" id="{{num}}">{{title}}</td>
 						<td>{{id}}</td>
 						<td>{{time}}</td>
 						<td>{{view}}</td>
@@ -256,11 +256,23 @@ ul, li {
 	        paging(totalData, dataPerPage, pageCount, 1);
 	    });
 
+		var date = new Date();
+		var year = date.getFullYear();
+		var month = new String(date.getMonth()+1);
+		var day = new String(date.getDate());
+		
+		if(month.length < 2)
+			month = "0" + month;
+		if(day.length < 2)
+			day = "0" + day;
+		
+		var dateTime = year+"-"+month+"-"+day ;
+		
 		var data = {
 				users:[
-					{num:"123",title:"이것은 제목입니다.",id:"vwijjm",time:"2019-08-20",view:"5346"},
-					{num:"이름12",title:"제목12",id:"아이디12",time:"시간12",view:"뷰12"},
-					{num:"이름13",title:"제목13",id:"아이디13",time:"시간13",view:"뷰13"},
+					{num:"123",title:"이것은 제목입니다.",id:"vwijjm",time:"2019-08-21",view:"5346"},
+					{num:"이름12",title:"제목12",id:"아이디12",time:"2019-08-21",view:"뷰12"},
+					{num:"이름13",title:"제목13",id:"아이디13",time:"2019-08-21",view:"뷰13"},
 					{num:"이름14",title:"제목14",id:"아이디14",time:"시간14",view:"뷰14"},
 					{num:"이름14",title:"제목14",id:"아이디14",time:"시간14",view:"뷰14"},
 					{num:"이름14",title:"제목14",id:"아이디14",time:"시간14",view:"뷰14"},
@@ -298,10 +310,19 @@ ul, li {
 			var slice = data.users.slice(start,end);
 			var datas = {};
 			datas.users = slice;
+			
 			var html = template(datas);
 		
 			$("#table_template").html(html);
 	    
+			for(var i=0;i<datas.users.length;i++){
+				if(dateTime == datas.users[i].time){
+					var id = datas.users[i].num;
+					var img = '<img src="http://img.lifestyler.co.kr/NewIMG/icon/ico_new.gif" style="vertical-align:top;margin-top:2px;" alt="New">';
+					$("#"+id).append(img);
+				}
+			};
+			
 		}
 		
 		function paging(totalData, dataPerPage, pageCount, currentPage){
@@ -407,6 +428,10 @@ ul, li {
 				}
 			},200);
 		}
+		
+		$("table_template").find("td").eq(1).on("click",function(){
+			alert($(this).attr("id"));
+		})
 		
 	</script>
 </body>
