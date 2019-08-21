@@ -290,6 +290,7 @@ ul, li {
 		var source=$("#table-template").html();
 		var template=Handlebars.compile(source);
 		
+		//페이지에 따른 핸들바 함수
 		function handlebar(dataPerPage,currentPage){
 			
 			var start = ((currentPage - 1) * dataPerPage);
@@ -352,9 +353,10 @@ ul, li {
 			console.log("클릭");
 		});
 		
-		var isOver = false;
-		var overTarget;
+		var isOver = false;		//가장 큰 목록 마우스오버 여부
+		var overTarget;		//마우스 오버한 목록을 넣기위한 변수선언
 		
+		//큰 목록 마우스오버 이벤트
 		$("#header_title > li").on("mouseover",function(e){
 			e.preventDefault();
 			
